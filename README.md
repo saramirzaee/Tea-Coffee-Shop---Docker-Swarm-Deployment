@@ -47,17 +47,19 @@ tea-coffee-shop/
    You will need to create Dockerfiles for each of the following services:
 
    - **Frontend**: Use Nginx to serve a static webpage (`index.html`) with tea and coffee products.
-      ‍‍‍  ```sudo docker build -t  frontend:v1 .
-        sudo docker run -itd -p 80:80 frontend:v1
-  ```
+      ‍‍‍ ```
+        sudo docker build -t  frontend:v1 .
+        sudo docker run -itd -p 80:80 frontend:v1   ```
+  
       
         
 
      
    - **Backend**: Create a Node.js application that serves an API with product data from the database.
+        ```
         sudo docker build -t backend:v1 .
         check:  sudo docker run -itd -p 3000:3000 backend:v1
-        Also, check if the backend API is accessible at **http://localhost:3000/products**.
+        Also, check if the backend API is accessible at **http://localhost:3000/products**. ```
 
         
 
@@ -74,9 +76,10 @@ tea-coffee-shop/
    - **Database**: Use the official PostgreSQL image and mount the `init.sql` file to initialize the database.
    - **Cache**: Use Redis to provide a caching mechanism for the backend.
   
-   sudo docker node ls
-   sudo docker swarm init --advertise-addr 192.168.2.117
-   sudo docker stack deploy -c docker-stack.yml tee-coffee
+    ```  sudo docker node ls
+      sudo docker swarm init --advertise-addr 192.168.2.117
+      sudo docker stack deploy -c docker-stack.yml tee-coffee
+   ```
 
    
 
