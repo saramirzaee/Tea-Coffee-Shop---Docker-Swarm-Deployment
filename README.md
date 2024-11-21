@@ -20,7 +20,7 @@ tea-coffee-shop/
 │   ├── Dockerfile
 │   ├── server.js
 │   └── package.json
-├── frontend/
+├── frontend/ط
 │   ├── Dockerfile
 │   ├── index.html
 │   └── style.css
@@ -47,9 +47,10 @@ tea-coffee-shop/
    You will need to create Dockerfiles for each of the following services:
 
    - **Frontend**: Use Nginx to serve a static webpage (`index.html`) with tea and coffee products.
-        sudo docker build -t  frontend:v1 .
+      ‍‍‍  ```sudo docker build -t  frontend:v1 .
         sudo docker run -itd -p 80:80 frontend:v1
-        
+  ```
+      
         
 
      
