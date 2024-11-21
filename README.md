@@ -47,7 +47,20 @@ tea-coffee-shop/
    You will need to create Dockerfiles for each of the following services:
 
    - **Frontend**: Use Nginx to serve a static webpage (`index.html`) with tea and coffee products.
+        sudo docker build -t  frontend:v1 .
+        sudo docker run -itd -p 80:80 frontend:v1
+        
+        
+
+     
    - **Backend**: Create a Node.js application that serves an API with product data from the database.
+        sudo docker build -t backend:v1 .
+        check:  sudo docker run -itd -p 3000:3000 backend:v1
+        Also, check if the backend API is accessible at **http://localhost:3000/products**.
+
+        
+
+   - 
    - **Database**: Use PostgreSQL and initialize it with predefined product data from the `init.sql` script.
    - **Cache**: Use Redis to provide a caching mechanism for better performance.
 
@@ -59,6 +72,12 @@ tea-coffee-shop/
    - **Backend**: Define the Node.js API service.
    - **Database**: Use the official PostgreSQL image and mount the `init.sql` file to initialize the database.
    - **Cache**: Use Redis to provide a caching mechanism for the backend.
+  
+   sudo docker node ls
+   sudo docker swarm init --advertise-addr 192.168.2.117
+   sudo docker stack deploy -c docker-stack.yml tee-coffee
+
+   
 
    Make sure to include:
 
@@ -67,7 +86,7 @@ tea-coffee-shop/
    - Proper **ports** for the frontend, backend, and monitoring.
    - Use **depends_on** to control service startup order.
 
-4. **Deploy the Project on Docker Swarm**
+5. **Deploy the Project on Docker Swarm**
 
    Once you have created the Dockerfiles and `docker-stack.yml` file, deploy the stack with the following command:
 
@@ -77,18 +96,18 @@ tea-coffee-shop/
 
    This will start the services in Docker Swarm.
 
-5. **Implement Monitoring**
+6. **Implement Monitoring**
 
    You can add **Prometheus** and **Grafana** to monitor the application’s health and performance:
 
    - Set up Prometheus to scrape metrics from your backend.
    - Create a Grafana dashboard to visualize the metrics.
 
-6. **Test the Application**
+7. **Test the Application**
 
    After deployment, visit **http://localhost:8080** to see the frontend displaying tea and coffee products. Also, check if the backend API is accessible at **http://localhost:3000/products**.
 
-7. **Troubleshoot and Optimize**
+8. **Troubleshoot and Optimize**
 
    As you deploy the stack, you might encounter issues. Troubleshoot and optimize your configurations to ensure everything runs smoothly. Use Docker logs and monitor service statuses to help with this.
 
