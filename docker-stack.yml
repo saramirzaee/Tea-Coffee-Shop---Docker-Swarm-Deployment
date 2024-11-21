@@ -1,0 +1,55 @@
+version: "3.9"
+
+services:
+  backend:
+    image: backend:v1
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_HOST=db
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=example
+      - CACHE_HOST=cache
+    depends_on:
+      - db
+      - cache
+    networks:
+      - tea-coffee-network
+
+  frontend:
+    image: frontend:v1
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    networks:
+      - tea-coffee-network
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: tea_coffee_shop
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - tea-coffee-network
+
+  cache:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - cache_data:/data
+    networks:
+      - tea-coffee-network
+
+volumes:
+  db_data:
+  cache_data:
+
+networks:
+  tea-coffee-network:
+    driver: overlay
+
