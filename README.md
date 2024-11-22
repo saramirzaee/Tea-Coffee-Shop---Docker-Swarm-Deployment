@@ -39,7 +39,7 @@ tea-coffee-shop/
 
    ```bash
    git clone https://github.com/saramirzaee/Tea-Coffee-Shop---Docker-Swarm-Deployment.git
-   cd cd Tea-Coffee-Shop---Docker-Swarm-Deployment
+   cd Tea-Coffee-Shop---Docker-Swarm-Deployment
    ```
 
 2. **Write Dockerfiles**
