@@ -38,7 +38,7 @@ tea-coffee-shop/
    First, clone the project repository to your local machine:
 
    ```bash
-   git clone https://github.com/arezoomohammadi22/DevOPs-Engineering/tree/main/tea-coffee-shop
+   git clone https://github.com/saramirzaee/Tea-Coffee-Shop---Docker-Swarm-Deployment.git
    cd tea-coffee-shop
    ```
 
