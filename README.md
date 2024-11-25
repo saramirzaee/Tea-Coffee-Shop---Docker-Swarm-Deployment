@@ -50,7 +50,11 @@ tea-coffee-shop/
       ‍‍‍
      ```
         sudo docker build -t  frontend:v1 .
-        sudo docker run -itd -p 80:80 frontend:v1   ```
+        sudo docker run -itd -p 80:80 frontend:v1
+
+
+
+     ```
   
       
         
@@ -60,7 +64,11 @@ tea-coffee-shop/
         ```
         sudo docker build -t backend:v1 .
         check:  sudo docker run -itd -p 3000:3000 backend:v1
-        Also, check if the backend API is accessible at **http://localhost:3000/products**. ```
+        Also, check if the backend API is accessible at **http://localhost:3000/products**.
+
+
+
+        ```
 
         
 
@@ -79,7 +87,6 @@ tea-coffee-shop/
   
     ```  sudo docker node ls
       sudo docker swarm init --advertise-addr 192.168.2.117
-      sudo docker stack deploy -c docker-stack.yml tee-coffee
    ```
 
    
